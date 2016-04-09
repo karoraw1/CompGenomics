@@ -1,0 +1,33 @@
+FrankenGenomeHMM_README
+
+The script can be launched from bash shell or terminal like so:
+
+$./FrankenGenome2.rb ARG1 ARG2
+
+or
+
+$ruby FrankenGenome2.rb ARG1 ARG2
+
+The two arguments are optional and if ommitted, the script will
+write out a text file containing the 1 and 0 assignments for the
+entire length of the Frankgeneome called "HMMresults.txt".
+The result will include line breaks after 60 characters
+
+ARG1 and ARG2 are for debugging. Suggested usage for grading are
+as follows:
+
+$ruby FrankenGenome2.rb writeAnswer
+
+$./FrankenGenome2.rb
+
+$~/Documents/ComputationalGenomics/HW6/FrankenGenome2.rb writeAnswer testData
+
+
+It takes about 15-20 seconds to run because it is downloading the necessary
+input files and saving them locally as text files.
+
+
+
+
+
+

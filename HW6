@@ -1,0 +1,45 @@
+Keith Arora-Williams
+EN 600.639
+December 6, 2015
+Homework 6 Text
+
+1. See attached file FrankenGenome2.rb and FrankenGenomeHMM_README
+2.
+(a)
+i. The E corresponds to the state of being in an exon. Exons are composed of 3-letter codons, hence three states.
+ii. A is simpler, faster to run, and requires fewer resources. If there is anything I learned from trying to include two-mer and three-mer frequencies in solving the FrankenGenome problem, it is that simplicity sometimes is more robust.
+iii. Each position in a codon, within an exon, has a distinctive set of transition probabilities. B takes advantage of this information.
+
+(b)
+i. Start codons
+ii. Stop codons
+iii. Splice donor site
+iv. Splice acceptor site
+v. There is a lack of continuity between subsequent positions in codon. It shouldnt be possible to move from node 5 into I and then return from node 17 to any position except 6.
+vi. The pathway from Nodes 13 to 17 could be repeated two more times. Instead of allowing all three exon nodes to have edges leading out to the same donor (13) and leading in from the same acceptor nodes (17), they could each have their own path of 5 nodes which reenter at the correct subsequent position in the exon.
+
+3. Not attempted
+
+4.
+(a) I will try describing the algorithm in some sorta psuedocode
+
+i. create look up table for amino acids such that every combination of 3 nucleotides maps to the correct amino acid or to the stop codon
+ii. create a reverse lookup table so that every amino acid or stop codon returns all the corresponding trinucleotide secquences
+iii. create four new strings. two empty ones for protein X and protein Y and two that are copies of "X" and "Y", called "mutated x" and "mutated y"
+iv. for every set of three nucleotides in x and in Y, add the corresponding amino acid or stop codon to "protein X" and "protein Y"
+v. for every amino acid in "protein X", check for equivalence at the same position in "protein Y"
+vi. if equivalence is met, move to the next amino acid
+vii. if equivalence is not met, load all the codons for both amino acids in the mismatch into two temporary variables
+iiX. create an array to keep track of the number of mismatching nucleotides between all pairwise comparisons of codon options
+X. for every codon option for one of the amino acids, count the number of mismatching nucleotides in every codon option for the other amino acid
+xi. find the minimum value in the array created in step iiX and change that many nuclotides in "mutated Y", so that X and "mutated Y" now translate to the same amino acid at that codon
+xii. once the loop initiated in step v finishes mutating "mutated Y" so that it now translates to the same amino acids in "X", repeat the loop but instead mutate "mutated X" to match "Y"
+xiii. count the number of changes between "mutated X" and X
+xiv. count the number of changes between "mutated Y" and Y
+xv. return the minumum of value produced by steps xiii and xiv
+
+(b) Its upper bounded by the hamming distance.
+
+
+
+
